@@ -8,18 +8,21 @@ module AzureSTT
   class Client
     include HTTParty
 
-    attr_reader :region, :subscription_key
+    attr_reader :region, :subscription_key, :proxy_addr, :proxy_port
 
     #
     # Initialize the client
     #
     # @param [String] subscription_key Cognitive Services API Key
     # @param [String] region The region of your resources
+    # @param [String] proxy_addr The proxy host
+    # @param [String] proxy_port The proxy port
     #
-    def initialize(region:, subscription_key:)
+    def initialize(region:, subscription_key:, proxy_addr:, proxy_port:)
       @subscription_key = subscription_key
       @region = region
       self.class.base_uri "https://#{region}.api.cognitive.microsoft.com/speechtotext/v3.1"
+      self.class.http_proxy(proxy_addr, proxy_port) if proxy_addr && proxy_port
     end
 
     #

@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 # rubocop:disable RSpec/DescribeClass
-describe 'get the result of a transcription', integration: true do
+describe 'get the result of a transcription', :integration do
   before do
     AzureSTT.configure do |config|
       config.region = 'region'

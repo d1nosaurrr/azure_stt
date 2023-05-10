@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 # rubocop:disable RSpec/DescribeClass
-describe 'Delete a transcription', integration: true do
+describe 'Delete a transcription', :integration do
   before do
     AzureSTT.configure do |config|
       config.region = 'region'

@@ -16,10 +16,14 @@ module AzureSTT
     # configuration
     # @param [String] subscription_key The subscription, optional, default is
     # read from configuration
+    # @param [String] proxy_addr The proxy host, optional
+    # @param [String] proxy_port The proxy port, optional
     #
     def initialize(region: AzureSTT.configuration.region,
-                   subscription_key: AzureSTT.configuration.subscription_key)
-      @client = Client.new(region: region, subscription_key: subscription_key)
+                   subscription_key: AzureSTT.configuration.subscription_key,
+                   proxy_addr: nil,
+                   proxy_port: nil)
+      @client = Client.new(region: region, subscription_key: subscription_key, proxy_addr: proxy_addr, proxy_port: proxy_port)
     end
 
     #

@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 # rubocop:disable RSpec/DescribeClass
-describe 'Create a transcription', integration: true do
+describe 'Create a transcription', :integration do
   let(:arguments) do
     {
       content_urls: ['whatever.com/sample.ogg'],
